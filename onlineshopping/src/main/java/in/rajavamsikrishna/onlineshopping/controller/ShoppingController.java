@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import in.rajavamsikrishna.onlineshopping.entity.Item;
+import in.rajavamsikrishna.onlineshopping.entity.ItemCategory;
+import in.rajavamsikrishna.onlineshopping.repository.ItemCategoryRepository;
 import in.rajavamsikrishna.onlineshopping.repository.ItemRepository;
 
 @RestController
@@ -21,6 +23,8 @@ import in.rajavamsikrishna.onlineshopping.repository.ItemRepository;
 public class ShoppingController {
 	@Autowired
 	private ItemRepository itemrepository;
+	@Autowired
+	private ItemCategoryRepository itemcategoryrepository;
 		@GetMapping("/items")
 		public List<Item> getAllItems(){
 			return itemrepository.findAll();
@@ -30,6 +34,10 @@ public class ShoppingController {
 		List<Item> items = itemrepository.findByCategoryId(id);
 		
 			return ResponseEntity.ok(items);
+		}
+		@GetMapping("/itemcategories")
+		public List<ItemCategory> getAllItemCategories(){
+			return itemcategoryrepository.findAll();
 		}
 
 }

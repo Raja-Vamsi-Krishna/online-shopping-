@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ItemsListComponent } from './components/items-list/items-list.component';
 import { ItemService } from './services/item.service';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ItemCategoryComponent } from './components/item-category/item-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsListComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ItemCategoryComponent
   ],
   imports: [
     BrowserModule,
