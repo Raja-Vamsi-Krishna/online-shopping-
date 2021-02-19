@@ -39,5 +39,11 @@ public class ShoppingController {
 		public List<ItemCategory> getAllItemCategories(){
 			return itemcategoryrepository.findAll();
 		}
+		
+		@GetMapping("/items/searchkey/{keyword}")
+		public List<Item> getEmployee(@PathVariable String keyword){
+		return itemrepository.findByKeyword(keyword);
+		
+		}
 
 }
