@@ -1,41 +1,44 @@
 <div class="row">
 
-    <div class="col-lg-3">
+  <div class="col-lg-3 ">
 
 
-      <app-item-category></app-item-category>
-
-    </div>
-    <!-- /.col-lg-3 -->
-
-    <div class="col-lg-9">
-
-
-        <div class="row" >
-            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of items"  >
-              <div class="card h-100" style="display: flex;">
-                <a href="#"><img class="card-img-top" [src]="item.imageurl" alt=""  ></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">{{item.name}}</a>
-                  </h4>
-                  <h5>{{item.unitprice| currency:'INR'}}</h5>
-                  <p class="card-text text-truncate">{{item.description}}</p>
-                </div>
-                <div class="card-footer">
-                  <small class="btn btn-primary float-right">Add cart</small>
-                </div>
-              </div>
-            </div>
-            </div>
-  
-
-      
-
-      <!-- /.row -->
-
-    </div>
-    <!-- /.col-lg-9 -->
+    <app-item-category></app-item-category>
 
   </div>
-  <!-- /.row -->
+  <!-- /.col-lg-3 -->
+
+  <div class="col-lg-9">
+
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of items">
+        <div class="card h-100" style="display: flex;">
+          <a href="#"><img class="card-img-top" [src]="item.imageurl" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">{{item.name}}</a>
+            </h4>
+            <h5>{{item.unitprice| currency:'INR'}}</h5>
+            <p class="card-text text-truncate">{{item.description}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="btn btn-primary float-right">Add cart</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="items?.length==0" class="col-md-12 alert alert-danger mt-3">
+     ' no books found '
+    </div>
+
+
+
+
+    <!-- /.row -->
+
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->

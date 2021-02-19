@@ -9,30 +9,41 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent implements OnInit {
-currentcategoryId:number;
+  currentcategoryId: number;
+  searchMode: boolean;
 
- items:Item[]
-  constructor(private itemservice:ItemService, private _activateroute:ActivatedRoute) { }
+  items: Item[]
+  constructor(private itemservice: ItemService, private _activateroute: ActivatedRoute) { }
 
   ngOnInit() {
-    this._activateroute.paramMap.subscribe(()=> this.getAllItems());
-   
+    this._activateroute.paramMap.subscribe(() => this.getAllItems());
+
   }
-  getAllItems(){
-    const hasCategoryId:boolean=this._activateroute.snapshot.paramMap.has("id")
-    if(hasCategoryId){
-      this.currentcategoryId=parseInt(this._activateroute.snapshot.paramMap.get("id"));
+  getAllItems() {
+    this.searchMode = this._activateroute.snapshot.paramMap.has('keyword');
+    if (this.searchMode) {
+      this.handleSearchItems();
     }
-    else{
-      this.currentcategoryId=4;
+    else {
+      this.handleListItems();
     }
 
+  }
+  handleListItems() {
+    const hasCategoryId: boolean = this._activateroute.snapshot.paramMap.has("id")
+    if (hasCategoryId) {
+      this.currentcategoryId = parseInt(this._activateroute.snapshot.paramMap.get("id"));
+    }
+    else {
+      this.currentcategoryId = 1;
+    }
+    this.itemservice.getItems(this.currentcategoryId).subscribe(data =>
+      this.items = data)
 
-
-
-this.itemservice.getItems(this.currentcategoryId).subscribe(data=>
-  this.items=data
-  )
+  }
+  handleSearchItems() {
+   const keyword:string= this._activateroute.snapshot.paramMap.get('keyword');
+   this.itemservice.getItemsBySearch(keyword).subscribe(data=> this.items=data)
 
   }
 

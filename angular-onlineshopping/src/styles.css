@@ -15,4 +15,15 @@ h1{
 body {
     padding-top: 56px;
   }
- 
+  
+  footer{
+    bottom:0;
+
+    position:fixed;
+    font-weight: bold;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    bottom: 0;
+  }
