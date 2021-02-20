@@ -45,5 +45,17 @@ public class ShoppingController {
 		return itemrepository.findByKeyword(keyword);
 		
 		}
-
+		@GetMapping("/items/{id}")
+		public ResponseEntity<Item> getItem(@PathVariable long id){
+		Item item =itemrepository.findById(id).orElseThrow();
+		
+			return ResponseEntity.ok(item);
+		}
+		@GetMapping("/category/{id}")
+		public ResponseEntity<ItemCategory> getCategory(@PathVariable long id){
+		ItemCategory itemcategory =itemcategoryrepository.findByItemId(id);
+		
+			return ResponseEntity.ok(itemcategory);
+		}
 }
+

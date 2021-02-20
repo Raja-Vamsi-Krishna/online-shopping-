@@ -19,4 +19,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 	public List<Item> findByKeyword(String keyword);
 
 
+
+
 }
+
