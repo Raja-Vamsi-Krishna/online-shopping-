@@ -12,6 +12,8 @@ import { ItemCategoryComponent } from './components/item-category/item-category.
 import { SearchComponentComponent } from './components/search-component/search-component.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { ItemdetailComponent } from './components/itemdetail/itemdetail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { AboutComponent } from './components/about/about.component';
     ItemCategoryComponent,
     SearchComponentComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    ItemdetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

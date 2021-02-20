@@ -1,13 +1,12 @@
-  
 footer{
-    bottom:0;
+    bottom:unset;
     position:relative;
     font-weight: bold;
     left: 0;
     width: 100%;
     color: white;
     text-align: center;
-    bottom: 0;
+    padding:auto;
 
     
-  }
+  } 

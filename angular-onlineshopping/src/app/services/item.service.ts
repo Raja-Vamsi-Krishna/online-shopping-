@@ -21,9 +21,14 @@ export class ItemService {
     return this.http.get<Itemcategory[]>(this.categoryUrl);
     
   }
-  getItemsBySearch(keyword: string):Observable<Item[]> {
+  getItemById(keyword: string):Observable<Item[]> {
     const searchUrl=`${this.baseUrl}/searchkey/${keyword}`;
     return this.http.get<Item[]>(searchUrl);
+    
+  }
+  getItemsBySearch(id: number):Observable<Item> {
+    const searchUrl=`${this.baseUrl}/${id}`;
+    return this.http.get<Item>(searchUrl);
     
   }
  

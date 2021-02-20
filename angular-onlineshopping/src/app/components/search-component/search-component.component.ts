@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,17 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-component.component.css']
 })
 export class SearchComponentComponent implements OnInit {
+   name:'';
 
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
 searchitems(keyword:string){
+  this.name='';
   if(keyword){
+   
   this.router.navigateByUrl('/search/'+keyword);
   }
   else{
-    this.router.navigateByUrl('/items');
+    this.router.navigateByUrl(this.router.url);
   }
 }
 }
