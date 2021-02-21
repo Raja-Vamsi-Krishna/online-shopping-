@@ -10,9 +10,15 @@ import { Itemcategory } from '../common/itemcategory';
 export class ItemService {
   private baseUrl="http://localhost:8080/api/v1/items";
   private categoryUrl="http://localhost:8080/api/v1/itemcategories";
+  private categorybyItemUrl="http://localhost:8080/api/v1/category";
 
   getItems(currentcategoryId: number):Observable<Item[]> {
     const searchUrl=`${this.baseUrl}/search/${currentcategoryId}`;
+    return this.http.get<Item[]>(searchUrl);
+    
+  }
+  getAllItems():Observable<Item[]> {
+    const searchUrl=`${this.baseUrl}`;
     return this.http.get<Item[]>(searchUrl);
     
   }
@@ -21,14 +27,19 @@ export class ItemService {
     return this.http.get<Itemcategory[]>(this.categoryUrl);
     
   }
-  getItemById(keyword: string):Observable<Item[]> {
+  getItemsBySearch(keyword: string):Observable<Item[]> {
     const searchUrl=`${this.baseUrl}/searchkey/${keyword}`;
     return this.http.get<Item[]>(searchUrl);
     
   }
-  getItemsBySearch(id: number):Observable<Item> {
+  getItemsById(id: number):Observable<Item> {
     const searchUrl=`${this.baseUrl}/${id}`;
     return this.http.get<Item>(searchUrl);
+    
+  }
+  getCategoryByItemId(id: number):Observable<Itemcategory> {
+    const searchUrl=`${this.categorybyItemUrl}/${id}`;
+    return this.http.get<Itemcategory>(searchUrl);
     
   }
  

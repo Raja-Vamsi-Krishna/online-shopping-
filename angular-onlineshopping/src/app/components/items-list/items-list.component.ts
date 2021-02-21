@@ -35,8 +35,9 @@ export class ItemsListComponent implements OnInit {
       this.currentcategoryId = parseInt(this._activateroute.snapshot.paramMap.get("id"));
     }
     else {
-      this.currentcategoryId = 1;
-    }
+      this.itemservice.getAllItems().subscribe(data =>
+        this.items = data)
+      }
     this.itemservice.getItems(this.currentcategoryId).subscribe(data =>
       this.items = data)
 

@@ -8,12 +8,14 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 
 const routes: Routes = [
 {path:'items',component:ItemsListComponent},
+{path:'home',component:ItemsListComponent},
+
 {path:'category/:id',component:ItemsListComponent},
 {path:'searchitem/:id',component:ItemdetailComponent},
 {path:'search/:keyword',component:ItemsListComponent},
 {path:'contact',component:ContactComponent},
 {path:'about',component:AboutComponent},
-{path:'',redirectTo:'/items', pathMatch:'full'},
+{path:'',redirectTo:'/home', pathMatch:'full'},
 {path:'**',component:PagenotfoundComponent}
 
 ];
