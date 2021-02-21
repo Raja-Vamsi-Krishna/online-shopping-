@@ -44,7 +44,7 @@ public class Item {
 
 	@ManyToOne
 	@JoinColumn(name = "category_id", nullable = false)
-	private ItemCategory category;
+	public ItemCategory category;
 
 	public Item() {
 

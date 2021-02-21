@@ -16,12 +16,14 @@ import javax.persistence.Table;
 public class ItemCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	public Long id;
 
 	@Column(name = "category_name")
 	private String categoryname;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="category")
+	
+	@Column(name = "items")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="category")
 	private Set<Item> item;
 
 	public ItemCategory() {

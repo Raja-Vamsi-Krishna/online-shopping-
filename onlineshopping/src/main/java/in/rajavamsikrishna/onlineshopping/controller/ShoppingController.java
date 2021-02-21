@@ -53,8 +53,10 @@ public class ShoppingController {
 		}
 		@GetMapping("/category/{id}")
 		public ResponseEntity<ItemCategory> getCategory(@PathVariable long id){
-		ItemCategory itemcategory =itemcategoryrepository.findByItemId(id);
-		
+		Item item =itemrepository.findById(id).orElseThrow();
+		long categoryid=item.category.id;
+		ItemCategory itemcategory =itemcategoryrepository.findById(categoryid).orElseThrow();
+
 			return ResponseEntity.ok(itemcategory);
 		}
 }
