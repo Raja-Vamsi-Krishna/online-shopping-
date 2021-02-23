@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { ItemdetailComponent } from './components/itemdetail/itemdetail.component';
 import { FormsModule } from '@angular/forms';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,21 @@ import { FormsModule } from '@angular/forms';
     SearchComponentComponent,
     ContactComponent,
     AboutComponent,
-    ItemdetailComponent
+    ItemdetailComponent,
+    
+    
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    JwPaginationModule
+    
+       
+    
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

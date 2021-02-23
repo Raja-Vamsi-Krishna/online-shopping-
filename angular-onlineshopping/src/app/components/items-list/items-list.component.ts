@@ -11,14 +11,19 @@ import { ItemService } from 'src/app/services/item.service';
 export class ItemsListComponent implements OnInit {
   currentcategoryId: number;
   searchMode: boolean;
+  /* pageOfItems:Array<Item>;
+  pageSize:number=6; */
 
-  items: Item[]
+  items:Item[]
   constructor(private itemservice: ItemService, private _activateroute: ActivatedRoute) { }
 
   ngOnInit() {
     this._activateroute.paramMap.subscribe(() => this.getAllItems());
 
   }
+  /* pageClick(pageOfItems:Array<Item>){
+    this.pageOfItems=pageOfItems;
+  } */
   getAllItems() {
     this.searchMode = this._activateroute.snapshot.paramMap.has('keyword');
     if (this.searchMode) {
