@@ -25,5 +25,15 @@ totalQuantity:number=0;
    this.cartservice.caluculateTotalPrice();
 
   }
+increment(cartitem:CartItem){
+this.cartservice.addToCart(cartitem);
+}
+decrement(cartitem:CartItem){
+  this.cartservice.decrementQuantity(cartitem);
+  
+}
+remove(cartitem:CartItem){
+this.cartservice.remove(cartitem);
+}
 
 }
