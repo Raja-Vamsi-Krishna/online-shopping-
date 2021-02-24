@@ -10,3 +10,7 @@ footer{
 
     
   } 
+  .navbar nav.nav-item.a{
+    font: bold;
+    color: blue;
+  }

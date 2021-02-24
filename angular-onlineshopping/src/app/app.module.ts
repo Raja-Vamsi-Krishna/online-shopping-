@@ -15,6 +15,12 @@ import { AboutComponent } from './components/about/about.component';
 import { ItemdetailComponent } from './components/itemdetail/itemdetail.component';
 import { FormsModule } from '@angular/forms';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { LoginComponent } from './components/login/login.component';
+import { CartService } from './services/cart.service';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component'; 
 
 @NgModule({
   declarations: [
@@ -26,6 +32,9 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     ContactComponent,
     AboutComponent,
     ItemdetailComponent,
+    CartStatusComponent,
+    LoginComponent,
+    CartDetailsComponent,
     
     
     
@@ -36,12 +45,13 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    JwPaginationModule
-    
+    JwPaginationModule,
+    NgxSpinnerModule,
+BrowserAnimationsModule    
        
     
   ],
-  providers: [ItemService],
-  bootstrap: [AppComponent]
+  providers: [ItemService,CartService,NgxSpinnerService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
